@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom-styles.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <!-- javascript -->
+    <script src='assets/jquery/jquery.min.js'></script>
+    <script src='assets/lodash/lodash.js'></script>
+    <script src='assets/chart/chart.min.js'></script>
+    <script src="js/loanCalculatorTester.js"></script>
+    <script src="js/loanCalculator.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body onLoad="onWindowLoaded()">
+    <div class="container main-container">
+      <h3> Beräkna lån </h3>
+      <div class="row content-panel">
+        <div class="col-3">
+          <h5> Totala Lån (kr) </h5>
+          <input type="text" class="form-control" id="loan-form">
+        </div>
+        <div class="col-3">
+          <h5> Årlig ränta (%) </h5>
+          <input type="text" class="form-control" id="rate-form">
+        </div>
+        <div class="col-3">
+          <h5> Totala månader </h5>
+          <input type="text" class="form-control" id="months-form">
+        </div>
+        <!-- <div class="col-3">
+          <h5> Betalning per månad (SEK)</h5>
+          <input type="text" class="form-control" id="monthly-sum-form">
+        </div> -->
+      </div>
+      <div class="row content-panel">
+        <div class="col-3">
+          <div class="form-group">
+            <button type="button" class="btn btn-warning btn-orange" id="calculate-straight-button">
+              <span class="fa fa-calculator" aria-hidden="true"></span>
+              Beräkna rak amortering
+            </button>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-warning btn-orange" id="calculate-annuity-button">
+              <span class="fa fa-calculator" aria-hidden="true"></span>
+              Beräkna annuitetslån
+            </button>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="form-group">
+            <label id="error-message"></label>
+          </div>
+          <div class="form-group">
+            <label id="info-total-sum"></label>
+          </div>
+          <div class="form-group">
+            <label id="info-total-interest"></label>
+          </div>
+          <div class="form-group">
+            <label id="info-total-monthly"></label>
+          </div>
+        </div>
+      </div>
+      <div class="row content-panel">
+        <div class="col-6">
+          <h4> Kvarvarande Lån </h4>
+          <canvas id="loan-chart-sum"></canvas>
+        </div>
+        <div class="col-6">
+          <h4> Betald Ränta </h4>
+          <canvas id="loan-chart-interest"></canvas>
+        </div>
+      </div>
+      <div class="row content-panel">
+        <div class="col-6">
+          <h4> Amortering </h4>
+          <canvas id="loan-chart-amortization"></canvas>
+        </div>
+        <div class="col-6">
+          <h4> Betald Summa </h4>
+          <canvas id="loan-chart-payed-sum"></canvas>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
